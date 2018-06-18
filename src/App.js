@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import axios from 'axios';
+import Rental from './components/Rental';
 import './App.css';
 
 class App extends Component {
@@ -12,8 +12,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-        </p>
+        <div className="App-intro">
+        <Rental/>
+        </div>
       </div>
     );
   }

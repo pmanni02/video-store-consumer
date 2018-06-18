@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
+// import './App.css';
+import Movie from './Movie';
+import axios from 'axios';
 
 class Rental extends Component {
   constructor() {
@@ -32,20 +34,21 @@ class Rental extends Component {
     );
   }
 
-  renderMovielist = () => {
+  renderMovieList = () => {
     const movieList = this.state.movies.map((item, index) => {
       return(
-        <Card
+        <Movie
           key={index}
-          index={index}
-          id={item.card.id}
-          text={item.card.text}
-          emoji={item.card.emoji}
-          deleteCardCallback={this.deleteCard}
-        />
+          id={item.id}
+          title={item.title}
+          overview={item.overview}
+          release={item.release_date}
+          image_url={item.image_url}
+          />
       )
+
     })
-    return cardList
+    return movieList
   }
 
   renderError = () => {
@@ -60,7 +63,7 @@ class Rental extends Component {
     return (
       <div>
         <div>
-          {this.renderCardlist()}
+          {this.renderMovieList()}
         </div>
       </div>
 
