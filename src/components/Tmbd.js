@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import SearchTmbdForm from './SearchTmbdForm.js'
 
 class Tmbd extends Component {
   constructor(){
@@ -11,16 +12,9 @@ class Tmbd extends Component {
 
   render(){
     return(
-      <form>
-        <div>
-           <label
-             htmlFor = "text">Search:
-           </label>
-           <input name = "text" value = { this.state.text } type = "text"
-             onChange = { this.onFieldChange }
-           />
-         </div>
-      </form>
+      <div>
+        <SearchTmbdForm />
+      </div>
     );
   }
 }
