@@ -3,11 +3,12 @@ import './App.css';
 
 class Rental extends Component {
   constructor() {
-  super();
-  this.state = {
-    movies: [],
-  };
-  
+    super();
+    this.state = {
+      movies: []
+    };
+  }
+
   componentDidMount = () => {
     let query =  'http://localhost:3000/movies'
     console.log(query)
@@ -30,4 +31,42 @@ class Rental extends Component {
       }
     );
   }
+
+  renderMovielist = () => {
+    const movieList = this.state.movies.map((item, index) => {
+      return(
+        <Card
+          key={index}
+          index={index}
+          id={item.card.id}
+          text={item.card.text}
+          emoji={item.card.emoji}
+          deleteCardCallback={this.deleteCard}
+        />
+      )
+    })
+    return cardList
+  }
+
+  renderError = () => {
+    return (
+      <p className='validation-errors-dislay'>
+        {this.state.error}
+      </p>
+    )
+  }
+
+  render() {
+    return (
+      <div>
+        <div>
+          {this.renderCardlist()}
+        </div>
+      </div>
+
+    )
+  }
+
 }
+
+export default Rental;
