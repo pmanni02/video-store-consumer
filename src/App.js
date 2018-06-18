@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import logo from './logo.svg';
 import axios from 'axios';
 import './App.css';
@@ -14,7 +15,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <Tmbd />
+        <div>
+          <Tmbd />
+        </div>
       </div>
     );
   }
