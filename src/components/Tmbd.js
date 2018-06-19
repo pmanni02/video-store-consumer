@@ -4,6 +4,7 @@ import './Tmbd.css'
 import axios from 'axios';
 import SearchTmbdForm from './SearchTmbdForm.js'
 import ShowMovieResults from './ShowMovieResults.js'
+import TmbdMovie from './TmbdMovie'
 
 class Tmbd extends Component {
   constructor(){
@@ -11,6 +12,7 @@ class Tmbd extends Component {
     this.state = {
       // searchIsHidden: false,
       moviesAreHidden: true,
+      movieHidden: true,
       movies: []
     }
   }
@@ -51,6 +53,10 @@ class Tmbd extends Component {
           <ShowMovieResults
             movies = { this.state.movies }
           />
+        </div>
+
+        <div className = {this.displayComp(this.state.movieHidden)}>
+          
         </div>
       </div>
     );

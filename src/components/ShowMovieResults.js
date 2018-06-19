@@ -12,8 +12,10 @@ class ShowMovieResults extends Component {
       return(
         <TmbdMovie
           key = { index }
+          id = { movie.id }
           title = { movie.title }
           releaseDate = { movie.release_date }
+          poster = { movie.poster_path }
         />
       )
     })
