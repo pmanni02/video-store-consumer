@@ -10,7 +10,6 @@ class Tmbd extends Component {
   constructor(){
     super();
     this.state = {
-      // searchIsHidden: false,
       moviesAreHidden: true,
       movieHidden: true,
       movies: []
@@ -21,12 +20,10 @@ class Tmbd extends Component {
     const url = 'http://localhost:3000//movies?query=';
     axios.get(`${url}${search}`)
       .then((response) => {
-        // console.log(response.data);
         this.setState({
           moviesAreHidden: false,
           movies: response.data
         })
-        console.log(this.state.movies);
       })
       .catch((error) => {
         console.log(error);
@@ -54,7 +51,7 @@ class Tmbd extends Component {
         </div>
 
         <div className = {this.displayComp(this.state.movieHidden)}>
-          
+
         </div>
       </div>
     );
