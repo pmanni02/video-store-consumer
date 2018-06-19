@@ -112,10 +112,11 @@ class App extends Component {
         <div className={this.state.hiddenMovies}>
           <RentalList pickMovieDetailCallback={this.pickMovieDetail}/>
         </div>
+        </section>
         <div className={this.state.searchForm}>
           <Tmbd />
         </div>
-        </section>
+
       </div>
     );
   }
