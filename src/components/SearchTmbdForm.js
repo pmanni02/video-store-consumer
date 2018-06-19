@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
 class SearchTmbdForm extends Component {
   constructor(){
@@ -27,10 +26,6 @@ class SearchTmbdForm extends Component {
     this.setState({
       search: '',
     });
-    // hide search component
-
-    // console.log('Submit event');
-    // console.log(`Searched Term: ${this.state.search}`);
   }
 
 
