@@ -87,6 +87,7 @@ class App extends Component {
         </div>
         <div className={this.state.hiddenMovies}>
           <RentalList pickMovieDetailCallback={this.pickMovieDetail}/>
+          
         </div>
       </div>
     );
