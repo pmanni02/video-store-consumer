@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './Tmbd.css'
 import axios from 'axios';
 import SearchTmbdForm from './SearchTmbdForm.js'
 
@@ -7,7 +8,8 @@ class Tmbd extends Component {
   constructor(){
     super();
     this.state = {
-      search: ''
+      searchIsHidden: false,
+      view: 'search'
     }
   }
 
@@ -24,12 +26,23 @@ class Tmbd extends Component {
       });
   }
 
+  displayComp = (stateVar) => {
+    if (stateVar) { return 'hide' }
+    return 'show';
+  }
+
   render(){
     return(
       <div>
-        <SearchTmbdForm
-          searchCallback = { this.getMovies }
-        />
+        <div className = { this.displayComp(this.state.searchIsHidden) }>
+          <SearchTmbdForm
+            searchCallback = { this.getMovies }
+          />
+        </div>
+
+        <div className = { this.displayComp(this.state.moviesAreHidden) }>
+
+        </div>
       </div>
     );
   }
