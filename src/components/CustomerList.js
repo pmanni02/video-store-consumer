@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Customer from './Customer';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 class CustomerList extends Component {
@@ -33,6 +34,11 @@ class CustomerList extends Component {
     );
   }
 
+  pickCustomer = (id) => {
+    this.props.pickRentalDetailCallback(id)
+  }
+
+
   renderCustomerList = () => {
     const customerList = this.state.customers.map((item, index) => {
       return(
@@ -45,6 +51,7 @@ class CustomerList extends Component {
           state={item.state}
           postal_code={item.postal_code}
           phone={item.phone}
+          customerCallback={this.pickCustomer}
         />
       )
     })
@@ -69,3 +76,7 @@ class CustomerList extends Component {
 }
 
 export default CustomerList;
+
+CustomerList.propTypes = {
+  pickRentalDetailCallback: PropTypes.func,
+}

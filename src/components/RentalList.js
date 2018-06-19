@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Movie from './Movie';
 import axios from 'axios';
 
@@ -43,6 +44,7 @@ class RentalList extends Component {
           overview={item.overview}
           release={item.release_date}
           image_url={item.image_url}
+          movieCallback={this.pickMovie}
         />
       )
     })
@@ -57,6 +59,10 @@ class RentalList extends Component {
     )
   }
 
+  pickMovie = (id) => {
+    this.props.pickRentalDetailCallback(id)
+  }
+
   render() {
     return (
       <div>
@@ -64,9 +70,12 @@ class RentalList extends Component {
           {this.renderMovieList()}
         </div>
       </div>
-
     )
   }
 }
 
 export default RentalList;
+
+RentalList.propTypes = {
+  pickRentalDetailCallback: PropTypes.func,
+}

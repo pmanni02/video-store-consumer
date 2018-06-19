@@ -3,11 +3,16 @@ import PropTypes from 'prop-types';
 import profile from './profile.jpg'
 
 class Customer extends Component {
+
+  rentalDetail = () => {
+    this.props.customerCallback(this.props.id)
+  }
+
   render() {
     return (
       <article>
         <div>{this.props.id}</div>
-        <img src={profile} />
+        <img src={profile} onClick={this.rentalDetail}/>
         <p>{this.props.name}</p>
         <p>{this.props.address}</p>
         <p>{this.props.city}, {this.props.state} {this.props.postal_code}</p>
@@ -27,4 +32,5 @@ Customer.propTypes = {
   state: PropTypes.string,
   postal_code: PropTypes.string,
   phone: PropTypes.string,
+  customerCallback: PropTypes.func,
 }
