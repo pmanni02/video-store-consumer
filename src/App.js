@@ -14,7 +14,9 @@ class App extends Component {
     this.state = {
       selectedMovie: '',
       selectedCustomer: '',
-      customerId: ','
+      customerId: '',
+      hiddenMovies: 'hide',
+      hiddenCustomers: 'hide',
     };
   }
 
@@ -33,9 +35,9 @@ class App extends Component {
     })
   }
 
-  addRental = (movie,customer) => {
-    const movieTitle = movie;
-    const customerId = customer;
+  addRental = () => {
+    const movieTitle = this.state.selectedMovie;
+    const customerId = this.state.customerId;
     const today = new Date()
     const dueDate = (new Date(today.setDate(today.getDate() + 7))).toISOString().slice(0,10)
 
@@ -52,6 +54,20 @@ class App extends Component {
     })
   }
 
+  rentalMovies = () => {
+    this.setState({
+      hiddenMovies: 'show',
+      hiddenCustomers: 'hide',
+    });
+  }
+
+  rentalCustomer = () => {
+    this.setState({
+      hiddenMovies: 'hide',
+      hiddenCustomers: 'show',
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -59,11 +75,17 @@ class App extends Component {
           <h1 className="App-title">Ada Movies</h1>
 
         </header>
-        <div>{this.state.selectedMovie}</div>
-        <div>{this.state.selectedCustomer}</div>
-        <div>
+        <div>Chosen Movie: {this.state.selectedMovie}</div>
+        <div>Chosen Customer: {this.state.selectedCustomer}</div>
 
+        <button onClick={this.rentalMovies}>MOVIES</button>
+        <button onClick={this.rentalCustomer}>CUSTOMERS</button>
+        <button onClick={this.addRental}>Process Rental</button>
+
+        <div className={this.state.hiddenCustomers}>
           <CustomerList pickCustomerDetailCallback={this.pickCustomerDetail}/>
+        </div>
+        <div className={this.state.hiddenMovies}>
           <RentalList pickMovieDetailCallback={this.pickMovieDetail}/>
         </div>
       </div>
