@@ -114,11 +114,7 @@ class App extends Component {
 
         {this.statusMessage()}
 
-        <div>Chosen Movie: {this.state.selectedMovie}</div>
-        <div>Chosen Customer: {this.state.selectedCustomer}</div>
-
         <div className="navigation">
-
           <button onClick={this.rentalMovies}>MOVIES</button>
           <button onClick={this.rentalCustomer}>CUSTOMERS</button>
           <button onClick={this.searchTmbd}>ADD TO LIBRARY</button>
@@ -133,18 +129,20 @@ class App extends Component {
         </div>
 
         <section className="tiles">
-        <div className={this.state.hiddenCustomers}>
-          <CustomerList pickCustomerDetailCallback={this.pickCustomerDetail}/>
-        </div>
-        <div className={this.state.hiddenMovies}>
-          <RentalList pickMovieDetailCallback={this.pickMovieDetail}/>
-        </div>
+          <div className={this.state.hiddenCustomers}>
+            <CustomerList pickCustomerDetailCallback={this.pickCustomerDetail}/>
+          </div>
+          <div className={this.state.hiddenMovies}>
+            <RentalList pickMovieDetailCallback={this.pickMovieDetail}/>
+          </div>
+        </section>
+
         <div className={this.state.searchForm}>
           <Tmbd
             statusCallback = { this.setMessageStatus }
           />
         </div>
-        </section>
+
       </div>
     );
   }
