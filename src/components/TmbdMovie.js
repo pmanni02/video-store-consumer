@@ -9,7 +9,7 @@ class TmbdMovie extends Component {
 
   onFormSubmit = (event) => {
     event.preventDefault();
-    console.log(this.props);
+    // console.log(this.props);
     const movieObj = {
       title: this.props.title,
       release_date: this.props.releaseDate,
@@ -17,19 +17,20 @@ class TmbdMovie extends Component {
       image_url: this.props.poster,
       external_id: this.props.id
     }
+
     axios.post('http://localhost:3000/movies/', movieObj)
       .then((response) => {
         console.log(response);
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.message);
       });
   }
 
   render(){
     return(
       <form onSubmit = {this.onFormSubmit}>
-        <p> Title: {this.props.title} </p>
+        <p>Title: {this.props.title} </p>
         <p>Release Date: {this.props.releaseDate}</p>
         <img
           src = {this.props.poster}
