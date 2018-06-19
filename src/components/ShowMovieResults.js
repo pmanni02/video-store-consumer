@@ -11,6 +11,10 @@ class ShowMovieResults extends Component {
     this.props.tmbdStatusCallback(status);
   }
 
+  // getImageUrl = () => {
+  //
+  // }
+
   renderMovies = () => {
     const movieList = this.props.movies.map((movie, index) => {
       return(

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import logo from './logo.svg';
 import axios from 'axios';
 import RentalList from './components/RentalList';
 import CustomerList from './components/CustomerList';
