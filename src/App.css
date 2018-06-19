@@ -2,9 +2,8 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+p {
+  font-size: 12px;
 }
 
 .App-header {
@@ -12,14 +11,6 @@
   height: 50px;
   padding: 20px;
   color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
 }
 
 .show {
@@ -30,8 +21,27 @@
   display: none;
 }
 
+/* HOME */
+
 .navigation {
   margin: 2em;
+}
+
+button {
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+
+  /* border-radius: 15em; */
+}
+
+button:hover {
+  background-color: #5F4B66;
+  color: white;
+  cursor: pointer;
 }
 
 .Rent-form {
@@ -40,14 +50,9 @@
 
 .Rent-form div:last-of-type {
   padding-bottom: 1em;
+
 }
 
-.tiles {
-  display: flex;
-  flex-direction: row;
-}
-
-/* @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* * {
+  border: black 1px solid;
 } */

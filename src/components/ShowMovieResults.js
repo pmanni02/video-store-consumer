@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TmbdMovie from './TmbdMovie';
+import './ShowMovieResults.css'
 
 class ShowMovieResults extends Component {
   constructor(props){
@@ -36,7 +37,7 @@ class ShowMovieResults extends Component {
 
   render(){
     return(
-      <div>
+      <div className="tmbd-movie-list">
         { this.renderMovies() }
       </div>
     );

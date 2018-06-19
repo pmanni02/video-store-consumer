@@ -128,14 +128,13 @@ class App extends Component {
           </span>
         </div>
 
-        <section className="tiles">
           <div className={this.state.hiddenCustomers}>
             <CustomerList pickCustomerDetailCallback={this.pickCustomerDetail}/>
           </div>
           <div className={this.state.hiddenMovies}>
             <RentalList pickMovieDetailCallback={this.pickMovieDetail}/>
           </div>
-        </section>
+
         <div className={this.state.searchForm}>
           <Tmbd
             statusCallback = { this.setMessageStatus }

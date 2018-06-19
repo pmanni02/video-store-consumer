@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import './TmbdMovie.css'
 
 class TmbdMovie extends Component {
   constructor(props){
@@ -30,8 +31,8 @@ class TmbdMovie extends Component {
 
   render(){
     return(
-      <form onSubmit = {this.onFormSubmit}>
-        <p>Title: {this.props.title} </p>
+      <form onSubmit = {this.onFormSubmit} className="tmbd-movie">
+        <h2>{this.props.title} </h2>
         <p>Release Date: {this.props.releaseDate}</p>
         <img
           src = {this.props.poster}

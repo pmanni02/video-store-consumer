@@ -1,0 +1,10 @@
+.customer {
+  margin: 2em;
+  padding: 5px;
+  width: 10em;
+  background-color: pink;
+}
+
+.customer img {
+  padding-top: 2em;
+}

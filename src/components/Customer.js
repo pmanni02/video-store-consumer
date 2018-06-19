@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import profile from './profile.jpg'
+import './Customer.css'
 
 class Customer extends Component {
 
@@ -10,10 +11,9 @@ class Customer extends Component {
 
   render() {
     return (
-      <article>
-        <div>{this.props.id}</div>
+      <article className="customer">
         <img src={profile} onClick={this.rentalDetail}/>
-        <p>{this.props.name}</p>
+        <h2>{this.props.name}</h2>
         <p>{this.props.address}</p>
         <p>{this.props.city}, {this.props.state} {this.props.postal_code}</p>
         <p>{this.props.phone}</p>

@@ -1,0 +1,10 @@
+.tmbd-movie {
+  margin: 2em;
+  padding: 1.5em;
+  width: 15em;
+  background-color: #C7C6FF;
+}
+
+.tmbd-movie img {
+  padding-top: 1em;
+}
