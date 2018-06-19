@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './Tmbd.css'
 import axios from 'axios';
 import SearchTmbdForm from './SearchTmbdForm.js'
@@ -35,6 +35,10 @@ class Tmbd extends Component {
     return 'show';
   }
 
+  statusUpdate = (status) => {
+    this.props.statusCallback(status);
+  }
+
   render(){
     return(
       <div>
@@ -47,15 +51,16 @@ class Tmbd extends Component {
         <div className = { this.displayComp(this.state.moviesAreHidden) }>
           <ShowMovieResults
             movies = { this.state.movies }
+            tmbdStatusCallback = {this.statusUpdate}
           />
-        </div>
-
-        <div className = {this.displayComp(this.state.movieHidden)}>
-
         </div>
       </div>
     );
   }
+}
+
+Tmbd.propTypes = {
+  statusCallback: PropTypes.func.isRequired
 }
 
 export default Tmbd;

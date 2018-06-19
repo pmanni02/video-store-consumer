@@ -7,6 +7,10 @@ class ShowMovieResults extends Component {
     super(props);
   }
 
+  statusUpdate = (status) => {
+    this.props.tmbdStatusCallback(status);
+  }
+
   renderMovies = () => {
     const movieList = this.props.movies.map((movie, index) => {
       return(
@@ -17,6 +21,7 @@ class ShowMovieResults extends Component {
           releaseDate = { movie.release_date }
           poster = { movie.image_url}
           overview = { movie.overview }
+          statusCallback = { this.statusUpdate }
         />
       )
     })
@@ -36,6 +41,7 @@ class ShowMovieResults extends Component {
 
 ShowMovieResults.propTypes = {
   movies: PropTypes.array.isRequired,
+  tmbdStatusCallback: PropTypes.func.isRequired
 };
 
 

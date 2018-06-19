@@ -48,10 +48,14 @@ class App extends Component {
     axios.post(url)
     .then((response) => {
       console.log(response);
+      this.setState({
+        status: 'Movie Rental Processed!'
+      });
     })
     .catch((error) => {
       this.setState({
-        message: error.message
+        // message: error.message
+        status: error.message
       });
     })
   }
@@ -86,6 +90,12 @@ class App extends Component {
     }
   }
 
+  setMessageStatus = (status) => {
+    this.setState({
+      status: status
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -95,7 +105,7 @@ class App extends Component {
         </header>
 
         {this.statusMessage()}
-        
+
         <div>Chosen Movie: {this.state.selectedMovie}</div>
         <div>Chosen Customer: {this.state.selectedCustomer}</div>
 
@@ -112,7 +122,9 @@ class App extends Component {
 
         </div>
         <div className={this.state.searchForm}>
-          <Tmbd />
+          <Tmbd
+            statusCallback = { this.setMessageStatus }
+          />
         </div>
       </div>
     );
