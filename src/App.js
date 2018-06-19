@@ -17,7 +17,8 @@ class App extends Component {
       customerId: '',
       hiddenMovies: 'hide',
       hiddenCustomers: 'hide',
-      searchForm: 'hide'
+      searchForm: 'hide',
+      status: ''
     };
   }
 
@@ -79,6 +80,12 @@ class App extends Component {
     })
   }
 
+  statusMessage = () => {
+    if (this.state.status !== ''){
+      return <p>{this.state.status}</p>
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -86,6 +93,9 @@ class App extends Component {
           <h1 className="App-title">Ada Movies</h1>
 
         </header>
+
+        {this.statusMessage()}
+        
         <div>Chosen Movie: {this.state.selectedMovie}</div>
         <div>Chosen Customer: {this.state.selectedCustomer}</div>
 
