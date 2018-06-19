@@ -1,33 +1,31 @@
 import React, { Component } from 'react';
-import './App.css';
+import RentalList from './RentalList';
+import NewRentalForm from './NewRentalForm';
+import CustomerList from './CustomerList';
 
 class Rental extends Component {
-  constructor() {
-  super();
-  this.state = {
-    movies: [],
-  };
-  
-  componentDidMount = () => {
-    let query =  'http://localhost:3000/movies'
-    console.log(query)
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     selectedMovie: 'None',
+  //     selectedCustomer: 'None',
+  //   };
+  // }
 
-    axios.get(query)
-      .then((response) => {
-        console.log(response);
-        this.setState({
-          movies: response.data
-        })
-      })
-      .catch((error) => {
-        this.setState({
-          error: error.message
-        });
-        if (error.message) {
-          this.renderError();
-          console.log(error.message);
-        }
-      }
-    );
+  render() {
+    return (
+      <div>
+        <div>
+          <NewRentalForm />
+        </div>
+        <div>
+          <CustomerList />
+        </div>
+      </div>
+
+    )
   }
+
 }
+
+export default Rental;

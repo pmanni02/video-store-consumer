@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import logo from './logo.svg';
-import axios from 'axios';
+import Rental from './components/Rental';
 import './App.css';
 
 import Tmbd from './components/Tmbd.js'
@@ -16,7 +16,6 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <div>
-          
         </div>
       </div>
     );
