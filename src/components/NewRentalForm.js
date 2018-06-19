@@ -18,20 +18,32 @@ class NewRentalForm extends Component {
     this.setState(updateState);
   }
 
+
+  clearForm = () => {
+    this.setState({
+      selectedMovie: 'None',
+      selectedCustomer: 'None',
+    });
+  }
+
   onFormSubmit = (event) => {
     event.preventDefault();
+
+      this.props.addRentalCallback(this.state.selectedMovie, this.state.selectedCustomer)
+      this.clearForm();
+
   }
 
   render() {
     return (
       <form onSubmit={this.onFormSubmit}>
         <div>
-        <label htmlFor='movie'>Movie: </label>
-        <input name='movie' value={this.state.selectedMovie} type='text' onChange={this.onFieldChange}/>
+        <label htmlFor='selectedMovie'>Movie: </label>
+        <input name='selectedMovie' value={this.state.selectedMovie} type='text' onChange={this.onFieldChange}/>
         </div>
         <div>
-        <label htmlFor='customer'>Customer: </label>
-        <input name='customer' value={this.state.selectedCustomer} type='text' onChange={this.onFieldChange}/>
+        <label htmlFor='selectedCustomer'>Customer: </label>
+        <input name='selectedCustomer' value={this.state.selectedCustomer} type='text' onChange={this.onFieldChange}/>
         </div>
         <input type='submit' value='Create Rental' />
       </form>
@@ -40,3 +52,7 @@ class NewRentalForm extends Component {
 }
 
 export default NewRentalForm;
+
+NewRentalForm.propTypes = {
+  addRentalCallback: PropTypes.func
+}

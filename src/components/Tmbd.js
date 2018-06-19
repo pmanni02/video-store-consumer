@@ -4,7 +4,7 @@ import './Tmbd.css'
 import axios from 'axios';
 import SearchTmbdForm from './SearchTmbdForm.js'
 import ShowMovieResults from './ShowMovieResults.js'
-import TmbdMovie from './TmbdMovie'
+// import TmbdMovie from './TmbdMovie'
 
 class Tmbd extends Component {
   constructor(){
@@ -54,7 +54,7 @@ class Tmbd extends Component {
         </div>
 
         <div className = {this.displayComp(this.state.movieHidden)}>
-
+          
         </div>
       </div>
     );
