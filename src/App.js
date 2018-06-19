@@ -111,14 +111,11 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Ada Movies</h1>
         </header>
-<<<<<<< HEAD
-=======
 
         {this.statusMessage()}
 
         <div>Chosen Movie: {this.state.selectedMovie}</div>
         <div>Chosen Customer: {this.state.selectedCustomer}</div>
->>>>>>> status-messages
 
         <div className="navigation">
 
