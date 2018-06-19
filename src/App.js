@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import logo from './logo.svg';
 import axios from 'axios';
 import RentalList from './components/RentalList';
 import CustomerList from './components/CustomerList';
@@ -18,7 +16,8 @@ class App extends Component {
       hiddenMovies: 'hide',
       hiddenCustomers: 'hide',
       searchForm: 'hide',
-      rentalFields: 'hide'
+      rentalFields: 'hide',
+      status: ''
     };
   }
 
@@ -48,10 +47,14 @@ class App extends Component {
     axios.post(url)
     .then((response) => {
       console.log(response);
+      this.setState({
+        status: 'Movie Rental Processed!'
+      });
     })
     .catch((error) => {
       this.setState({
-        message: error.message
+        // message: error.message
+        status: error.message
       });
     })
   }
@@ -83,12 +86,39 @@ class App extends Component {
     })
   }
 
+  statusMessage = () => {
+    if (this.state.status !== ''){
+      return <p>{this.state.status}</p>
+    }
+  }
+
+  setMessageStatus = (status) => {
+    this.setState({
+      status: status
+    });
+    setTimeout(this.hideStatus, 2000);
+  }
+
+  hideStatus = () => {
+    this.setState({
+      status: ''
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Ada Movies</h1>
         </header>
+<<<<<<< HEAD
+=======
+
+        {this.statusMessage()}
+
+        <div>Chosen Movie: {this.state.selectedMovie}</div>
+        <div>Chosen Customer: {this.state.selectedCustomer}</div>
+>>>>>>> status-messages
 
         <div className="navigation">
 
@@ -113,7 +143,9 @@ class App extends Component {
           <RentalList pickMovieDetailCallback={this.pickMovieDetail}/>
         </div>
         <div className={this.state.searchForm}>
-          <Tmbd />
+          <Tmbd
+            statusCallback = { this.setMessageStatus }
+          />
         </div>
         </section>
       </div>
