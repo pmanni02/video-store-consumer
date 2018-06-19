@@ -62,6 +62,7 @@ class App extends Component {
         <div>{this.state.selectedMovie}</div>
         <div>{this.state.selectedCustomer}</div>
         <div>
+
           <CustomerList pickCustomerDetailCallback={this.pickCustomerDetail}/>
           <RentalList pickMovieDetailCallback={this.pickMovieDetail}/>
         </div>
