@@ -7,23 +7,24 @@ class TmbdMovie extends Component {
     super(props);
   }
 
-  // imageURL = (imageId) => {
-  //   const imgPath = `https://image.tmdb.org/t/p/w200${imageId}`
-  //   // console.log(imgPath);
-  //   return imgPath;
-  // }
-
-  // onFormSubmit = (event) => {
-  //   event.preventDefault();
-  //   console.log(this.props);
-  //   axios.post('http://localhost:3000/movies/', {title: 'Babe'})
-  //     .then((response) => {
-  //       console.log(response);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }
+  onFormSubmit = (event) => {
+    event.preventDefault();
+    console.log(this.props);
+    const movieObj = {
+      title: this.props.title,
+      release_date: this.props.releaseDate,
+      overview: this.props.overview,
+      image_url: this.props.poster,
+      external_id: this.props.id
+    }
+    axios.post('http://localhost:3000/movies/', movieObj)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   render(){
     return(
