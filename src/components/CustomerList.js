@@ -34,10 +34,9 @@ class CustomerList extends Component {
     );
   }
 
-  pickCustomer = (id) => {
-    this.props.pickRentalDetailCallback(id)
+  pickCustomer = (id, name) => {
+    this.props.pickCustomerDetailCallback(id, name)
   }
-
 
   renderCustomerList = () => {
     const customerList = this.state.customers.map((item, index) => {
@@ -78,5 +77,5 @@ class CustomerList extends Component {
 export default CustomerList;
 
 CustomerList.propTypes = {
-  pickRentalDetailCallback: PropTypes.func,
+  pickCustomerDetailCallback: PropTypes.func,
 }

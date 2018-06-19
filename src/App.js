@@ -12,16 +12,25 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      selectedMovie: 'None',
-      selectedCustomer: 'None',
+      selectedMovie: '',
+      selectedCustomer: '',
+      customerId: ','
     };
   }
 
-  pickRentalDetail = (id) => {
+  pickMovieDetail = (title) => {
+    console.log(title);
+    this.setState({
+      selectedMovie: title
+    })
+  }
+
+  pickCustomerDetail = (id, name) => {
     console.log(id);
-    // this.setState({
-    //   selectedCustomer: id
-    // })
+    this.setState({
+      selectedCustomer: name,
+      customerId: id
+    })
   }
 
   addRental = (movie,customer) => {
@@ -47,12 +56,14 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
+          <h1 className="App-title">Ada Movies</h1>
 
+        </header>
+        <div>{this.state.selectedMovie}</div>
+        <div>{this.state.selectedCustomer}</div>
         <div>
-          <RentalList pickRentalDetailCallback={this.pickRentalDetail}/>
+          <CustomerList pickCustomerDetailCallback={this.pickCustomerDetail}/>
+          <RentalList pickMovieDetailCallback={this.pickMovieDetail}/>
         </div>
       </div>
     );

@@ -60,7 +60,7 @@ class RentalList extends Component {
   }
 
   pickMovie = (id) => {
-    this.props.pickRentalDetailCallback(id)
+    this.props.pickMovieDetailCallback(id)
   }
 
   render() {
@@ -77,5 +77,5 @@ class RentalList extends Component {
 export default RentalList;
 
 RentalList.propTypes = {
-  pickRentalDetailCallback: PropTypes.func,
+  pickMovieDetailCallback: PropTypes.func,
 }

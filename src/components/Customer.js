@@ -5,7 +5,7 @@ import profile from './profile.jpg'
 class Customer extends Component {
 
   rentalDetail = () => {
-    this.props.customerCallback(this.props.id)
+    this.props.customerCallback(this.props.id, this.props.name)
   }
 
   render() {
