@@ -93,7 +93,14 @@ class App extends Component {
   setMessageStatus = (status) => {
     this.setState({
       status: status
-    })
+    });
+    setTimeout(this.hideStatus, 2000);
+  }
+
+  hideStatus = () => {
+    this.setState({
+      status: ''
+    });
   }
 
   render() {
