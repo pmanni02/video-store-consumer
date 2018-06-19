@@ -9,7 +9,6 @@ class TmbdMovie extends Component {
 
   onFormSubmit = (event) => {
     event.preventDefault();
-    // console.log(this.props);
     const movieObj = {
       title: this.props.title,
       release_date: this.props.releaseDate,
@@ -21,9 +20,11 @@ class TmbdMovie extends Component {
     axios.post('http://localhost:3000/movies/', movieObj)
       .then((response) => {
         console.log(response);
+        this.props.statusCallback('Movie posted!');
       })
       .catch((error) => {
-        console.log(error.message);
+        // console.log(error.message);
+        this.props.statusCallback(error.message);
       });
   }
 
@@ -46,7 +47,8 @@ TmbdMovie.propTypes = {
   title: PropTypes.string,
   releaseDate: PropTypes.string,
   poster: PropTypes.string,
-  overview: PropTypes.string
+  overview: PropTypes.string,
+  statusCallback: PropTypes.func
 };
 
 

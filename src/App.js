@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import logo from './logo.svg';
 import axios from 'axios';
 import RentalList from './components/RentalList';
 import CustomerList from './components/CustomerList';
@@ -18,7 +16,8 @@ class App extends Component {
       hiddenMovies: 'hide',
       hiddenCustomers: 'hide',
       searchForm: 'hide',
-      rentalFields: 'hide'
+      rentalFields: 'hide',
+      status: ''
     };
   }
 
@@ -48,10 +47,14 @@ class App extends Component {
     axios.post(url)
     .then((response) => {
       console.log(response);
+      this.setState({
+        status: 'Movie Rental Processed!'
+      });
     })
     .catch((error) => {
       this.setState({
-        message: error.message
+        // message: error.message
+        status: error.message
       });
     })
   }
@@ -83,6 +86,25 @@ class App extends Component {
     })
   }
 
+  statusMessage = () => {
+    if (this.state.status !== ''){
+      return <p>{this.state.status}</p>
+    }
+  }
+
+  setMessageStatus = (status) => {
+    this.setState({
+      status: status
+    });
+    setTimeout(this.hideStatus, 2000);
+  }
+
+  hideStatus = () => {
+    this.setState({
+      status: ''
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -90,8 +112,9 @@ class App extends Component {
           <h1 className="App-title">Ada Movies</h1>
         </header>
 
-        <div className="navigation">
+        {this.statusMessage()}
 
+        <div className="navigation">
           <button onClick={this.rentalMovies}>MOVIES</button>
           <button onClick={this.rentalCustomer}>CUSTOMERS</button>
           <button onClick={this.searchTmbd}>ADD TO LIBRARY</button>
@@ -106,15 +129,17 @@ class App extends Component {
         </div>
 
         <section className="tiles">
-        <div className={this.state.hiddenCustomers}>
-          <CustomerList pickCustomerDetailCallback={this.pickCustomerDetail}/>
-        </div>
-        <div className={this.state.hiddenMovies}>
-          <RentalList pickMovieDetailCallback={this.pickMovieDetail}/>
-        </div>
+          <div className={this.state.hiddenCustomers}>
+            <CustomerList pickCustomerDetailCallback={this.pickCustomerDetail}/>
+          </div>
+          <div className={this.state.hiddenMovies}>
+            <RentalList pickMovieDetailCallback={this.pickMovieDetail}/>
+          </div>
         </section>
         <div className={this.state.searchForm}>
-          <Tmbd />
+          <Tmbd
+            statusCallback = { this.setMessageStatus }
+          />
         </div>
 
       </div>
