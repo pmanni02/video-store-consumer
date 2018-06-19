@@ -17,6 +17,7 @@ class App extends Component {
       customerId: '',
       hiddenMovies: 'hide',
       hiddenCustomers: 'hide',
+      searchForm: 'hide'
     };
   }
 
@@ -58,6 +59,7 @@ class App extends Component {
     this.setState({
       hiddenMovies: 'show',
       hiddenCustomers: 'hide',
+      searchForm: 'hide'
     });
   }
 
@@ -65,7 +67,16 @@ class App extends Component {
     this.setState({
       hiddenMovies: 'hide',
       hiddenCustomers: 'show',
+      searchForm: 'hide'
     });
+  }
+
+  searchTmbd = () => {
+    this.setState({
+      hiddenMovies: 'hide',
+      hiddenCustomers: 'hide',
+      searchForm: 'show'
+    })
   }
 
   render() {
@@ -78,6 +89,7 @@ class App extends Component {
         <div>Chosen Movie: {this.state.selectedMovie}</div>
         <div>Chosen Customer: {this.state.selectedCustomer}</div>
 
+        <button onClick={this.searchTmbd}>SEARCH</button>
         <button onClick={this.rentalMovies}>MOVIES</button>
         <button onClick={this.rentalCustomer}>CUSTOMERS</button>
         <button onClick={this.addRental}>Process Rental</button>
@@ -87,7 +99,10 @@ class App extends Component {
         </div>
         <div className={this.state.hiddenMovies}>
           <RentalList pickMovieDetailCallback={this.pickMovieDetail}/>
-          
+
+        </div>
+        <div className={this.state.searchForm}>
+          <Tmbd />
         </div>
       </div>
     );
