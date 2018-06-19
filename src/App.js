@@ -17,7 +17,8 @@ class App extends Component {
       customerId: '',
       hiddenMovies: 'hide',
       hiddenCustomers: 'hide',
-      searchForm: 'hide'
+      searchForm: 'hide',
+      rentalFields: 'hide'
     };
   }
 
@@ -59,7 +60,8 @@ class App extends Component {
     this.setState({
       hiddenMovies: 'show',
       hiddenCustomers: 'hide',
-      searchForm: 'hide'
+      searchForm: 'hide',
+      rentalFields: 'show'
     });
   }
 
@@ -67,7 +69,8 @@ class App extends Component {
     this.setState({
       hiddenMovies: 'hide',
       hiddenCustomers: 'show',
-      searchForm: 'hide'
+      searchForm: 'hide',
+      rentalFields: 'show'
     });
   }
 
@@ -75,7 +78,8 @@ class App extends Component {
     this.setState({
       hiddenMovies: 'hide',
       hiddenCustomers: 'hide',
-      searchForm: 'show'
+      searchForm: 'show',
+      rentalFields: 'hide'
     })
   }
 
@@ -84,26 +88,34 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Ada Movies</h1>
-
         </header>
-        <div>Chosen Movie: {this.state.selectedMovie}</div>
-        <div>Chosen Customer: {this.state.selectedCustomer}</div>
 
-        <button onClick={this.searchTmbd}>SEARCH</button>
-        <button onClick={this.rentalMovies}>MOVIES</button>
-        <button onClick={this.rentalCustomer}>CUSTOMERS</button>
-        <button onClick={this.addRental}>Process Rental</button>
+        <div className="navigation">
 
+          <button onClick={this.rentalMovies}>MOVIES</button>
+          <button onClick={this.rentalCustomer}>CUSTOMERS</button>
+          <button onClick={this.searchTmbd}>ADD TO LIBRARY</button>
+        </div>
+
+        <div className="Rent-form">
+          <span className={this.state.rentalFields}>
+          <div>Chosen Movie: {this.state.selectedMovie}</div>
+          <div>Chosen Customer: {this.state.selectedCustomer}</div>
+          <button onClick={this.addRental}>Process Rental</button>
+          </span>
+        </div>
+
+        <section className="tiles">
         <div className={this.state.hiddenCustomers}>
           <CustomerList pickCustomerDetailCallback={this.pickCustomerDetail}/>
         </div>
         <div className={this.state.hiddenMovies}>
           <RentalList pickMovieDetailCallback={this.pickMovieDetail}/>
-
         </div>
         <div className={this.state.searchForm}>
           <Tmbd />
         </div>
+        </section>
       </div>
     );
   }

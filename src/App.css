@@ -9,7 +9,7 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 50px;
   padding: 20px;
   color: white;
 }
@@ -30,8 +30,24 @@
   display: none;
 }
 
+.navigation {
+  margin: 2em;
+}
 
-@keyframes App-logo-spin {
+.Rent-form {
+  margin: 2em;
+}
+
+.Rent-form div:last-of-type {
+  padding-bottom: 1em;
+}
+
+.tiles {
+  display: flex;
+  flex-direction: row;
+}
+
+/* @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+} */
