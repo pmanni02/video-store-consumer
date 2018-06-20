@@ -61,11 +61,8 @@ class App extends Component {
       this.setState({
         status: 'Movie Rental Processed!'
       });
-<<<<<<< HEAD
       this.setMessageStatus(this.state.status);
-=======
       this.clearRentalForm()
->>>>>>> css-b
     })
     .catch((error) => {
       this.setState({
@@ -137,13 +134,14 @@ class App extends Component {
             <button onClick={this.searchTmbd}>ADD TO LIBRARY</button>
           </div>
 
-          <div className="Rent-form">
-            <span className={this.state.rentalFields}>
+          <span className={this.state.rentalFields}>
+            <div className="Rent-form">
+
             <div>Chosen Movie: {this.state.selectedMovie}</div>
             <div>Chosen Customer: {this.state.selectedCustomer}</div>
             <button onClick={this.addRental}>Process Rental</button>
-            </span>
-          </div>
+            </div>
+          </span>
 
           <section>
             <div className={this.state.hiddenCustomers}>
