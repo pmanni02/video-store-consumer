@@ -1,0 +1,14 @@
+form button {
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: .25em;
+  padding-bottom: .25em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+form button:hover {
+  background-color: #56667A;
+  color: white;
+  cursor: pointer;
+}

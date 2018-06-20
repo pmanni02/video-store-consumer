@@ -38,6 +38,14 @@ class App extends Component {
     })
   }
 
+  clearRentalForm = () => {
+    this.setState({
+      selectedMovie: '',
+      selectedCustomer: '',
+      customerId: '',
+    })
+  }
+
   addRental = () => {
     const movieTitle = this.state.selectedMovie;
     const customerId = this.state.customerId;
@@ -53,11 +61,14 @@ class App extends Component {
       this.setState({
         status: 'Movie Rental Processed!'
       });
+<<<<<<< HEAD
       this.setMessageStatus(this.state.status);
+=======
+      this.clearRentalForm()
+>>>>>>> css-b
     })
     .catch((error) => {
       this.setState({
-        // message: error.message
         status: error.message
       });
       this.setMessageStatus(this.state.status);
@@ -134,7 +145,7 @@ class App extends Component {
             </span>
           </div>
 
-          <section className="tiles">
+          <section>
             <div className={this.state.hiddenCustomers}>
               <CustomerList pickCustomerDetailCallback={this.pickCustomerDetail}/>
             </div>
