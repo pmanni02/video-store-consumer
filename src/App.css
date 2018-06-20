@@ -1,6 +1,9 @@
 /* Basics */
 .App {
   text-align: center;
+  display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 p {
@@ -22,12 +25,12 @@ a {
   color: white;
 }
 
-.show {
-  display: block
-}
-
-.hide {
-  display: none;
+footer {
+  height: 100px;
+  margin-top: 25%;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 /* HOME */

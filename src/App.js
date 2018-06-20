@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import RentalList from './components/RentalList';
 import CustomerList from './components/CustomerList';
-import './App.css';
 import Tmbd from './components/Tmbd.js'
+import './App.css';
+import logo from './tmdb.png';
+
+
 
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 // import Route from 'react-router-dom/Route';
@@ -90,6 +93,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+
           <header className="App-header">
             <Link to="/"><h1 className="App-title">Ada Movies</h1></Link>
           </header>
@@ -102,15 +106,14 @@ class App extends Component {
             <Link to="/search"><button>ADD TO LIBRARY</button></Link>
           </div>
 
-          <span className={this.state.rentalFields}>
-            <div className="Rent-form">
+          <div className="Rent-form">
             <section className="chosen">
               <div><strong>Chosen Movie: </strong> {this.state.selectedMovie}</div>
               <div><strong>Chosen Customer: </strong> {this.state.selectedCustomer}</div>
             </section>
-            <section><button onClick={this.addRental}>Process Rental</button></section>
-            </div>
-          </span>
+            <section><button onClick={this.addRental}>Process Rental</button>
+            </section>
+          </div>
 
           <section>
             <div>
@@ -124,7 +127,11 @@ class App extends Component {
                 statusCallback = { this.setMessageStatus }/>} />
             </div>
           </section>
-
+          
+          <footer>
+            <img src={logo}/>
+            <p>☞ Phoebe & Lily </p>
+          </footer>
         </div>
       </Router>
     );
