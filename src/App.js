@@ -3,8 +3,10 @@ import axios from 'axios';
 import RentalList from './components/RentalList';
 import CustomerList from './components/CustomerList';
 import './App.css';
-
 import Tmbd from './components/Tmbd.js'
+
+import {BrowserRouter as Router} from 'react-router-dom';
+import Route from 'react-router-dom/Route';
 
 class App extends Component {
   constructor() {
@@ -107,41 +109,43 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Ada Movies</h1>
-        </header>
+      <Router>
+        <div className="App">
+          <header className="App-header">
+            <h1 className="App-title">Ada Movies</h1>
+          </header>
 
-        {this.statusMessage()}
+          {this.statusMessage()}
 
-        <div className="navigation">
-          <button onClick={this.rentalMovies}>MOVIES</button>
-          <button onClick={this.rentalCustomer}>CUSTOMERS</button>
-          <button onClick={this.searchTmbd}>ADD TO LIBRARY</button>
-        </div>
-
-        <div className="Rent-form">
-          <span className={this.state.rentalFields}>
-          <div>Chosen Movie: {this.state.selectedMovie}</div>
-          <div>Chosen Customer: {this.state.selectedCustomer}</div>
-          <button onClick={this.addRental}>Process Rental</button>
-          </span>
-        </div>
-
-          <div className={this.state.hiddenCustomers}>
-            <CustomerList pickCustomerDetailCallback={this.pickCustomerDetail}/>
-          </div>
-          <div className={this.state.hiddenMovies}>
-            <RentalList pickMovieDetailCallback={this.pickMovieDetail}/>
+          <div className="navigation">
+            <button onClick={this.rentalMovies}>MOVIES</button>
+            <button onClick={this.rentalCustomer}>CUSTOMERS</button>
+            <button onClick={this.searchTmbd}>ADD TO LIBRARY</button>
           </div>
 
-        <div className={this.state.searchForm}>
-          <Tmbd
-            statusCallback = { this.setMessageStatus }
-          />
-        </div>
+          <div className="Rent-form">
+            <span className={this.state.rentalFields}>
+            <div>Chosen Movie: {this.state.selectedMovie}</div>
+            <div>Chosen Customer: {this.state.selectedCustomer}</div>
+            <button onClick={this.addRental}>Process Rental</button>
+            </span>
+          </div>
 
-      </div>
+          <section className="tiles">
+            <div className={this.state.hiddenCustomers}>
+              <CustomerList pickCustomerDetailCallback={this.pickCustomerDetail}/>
+            </div>
+            <div className={this.state.hiddenMovies}>
+              <RentalList pickMovieDetailCallback={this.pickMovieDetail}/>
+            </div>
+          </section>
+          <div className={this.state.searchForm}>
+            <Tmbd
+              statusCallback = { this.setMessageStatus }
+            />
+          </div>
+        </div>
+      </Router>
     );
   }
 }
