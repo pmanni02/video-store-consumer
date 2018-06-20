@@ -69,7 +69,7 @@ class App extends Component {
 
   statusMessage = () => {
     if (this.state.status !== ''){
-      return <p>{this.state.status}</p>
+      return <p className="status">{this.state.status}</p>
     }
   }
 
@@ -91,15 +91,15 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
-            <h1 className="App-title"><Link to="/">Ada Movies</Link></h1>
+            <Link to="/"><h1 className="App-title">Ada Movies</h1></Link>
           </header>
 
           {this.statusMessage()}
 
           <div className="navigation">
-            <button><Link to="/movies">MOVIES</Link></button>
-            <button onClick={this.rentalCustomer}><Link to="/customers">CUSTOMERS</Link></button>
-            <button onClick={this.searchTmbd}><Link to="/search">ADD TO LIBRARY</Link></button>
+            <Link to="/movies" ><button>MOVIES</button></Link>
+            <Link to="/customers"><button>CUSTOMERS</button></Link>
+            <Link to="/search"><button>ADD TO LIBRARY</button></Link>
           </div>
 
           <span className={this.state.rentalFields}>
@@ -113,18 +113,18 @@ class App extends Component {
           </span>
 
           <section>
-            <div className={this.rentalMovies}>
+            <div>
               <Route path="/movies" render={(props) => <RentalList {...props}  pickMovieDetailCallback={this.pickMovieDetail}/>} />
             </div>
-            <div className={this.rentalCustomers}>
+            <div>
               <Route path="/customers" render={(props) => <CustomerList {...props}  pickCustomerDetailCallback={this.pickCustomerDetail}/>} />
+            </div>
+            <div>
+              <Route path="/search" render={(props) => <Tmbd {...props}
+                statusCallback = { this.setMessageStatus }/>} />
             </div>
           </section>
 
-          <div className={this.searchTmbd}>
-            <Route path="/search" render={(props) => <Tmbd {...props}
-              statusCallback = { this.setMessageStatus }/>} />
-          </div>
         </div>
       </Router>
     );

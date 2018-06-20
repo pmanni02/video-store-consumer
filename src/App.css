@@ -1,3 +1,4 @@
+/* Basics */
 .App {
   text-align: center;
 }
@@ -6,10 +7,18 @@ p {
   font-size: 12px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .App-header {
   background-color: #222;
   height: 50px;
   padding: 20px;
+  color: white;
+}
+
+.App-title {
   color: white;
 }
 
@@ -39,9 +48,11 @@ button {
 button:hover {
   background-color: #5F4B66;
   color: white;
+  cursor: pointer;
 }
 
 
+/* Rental Form */
 .Rent-form {
   margin: 2em;
   padding: 1em;
@@ -66,6 +77,11 @@ button:hover {
 
 .chosen {
   text-align: left;
+}
+
+/* Alert messages */
+.status {
+  color: red;
 }
 
 /* * {
