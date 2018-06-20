@@ -6,17 +6,24 @@ import './TmbdMovie.css'
 class TmbdMovie extends Component {
 
   onFormSubmit = (event) => {
+    const url = 'http://localhost:3000/movies/';
+    // check if movie is already in library
+
+    // if the movie is in the library call
+    //  this.props.statusCallback('This movie is already in the library')
+
     event.preventDefault();
     const movieObj = {
       title: this.props.title,
       release_date: this.props.releaseDate,
       overview: this.props.overview,
       image_url: this.props.poster,
-      external_id: this.props.id
+      external_id: this.props.id,
+      inventory: 5
     }
     console.log(movieObj);
 
-    axios.post('http://localhost:3000/movies/', movieObj)
+    axios.post(url , movieObj)
       .then((response) => {
         console.log(response);
         this.props.statusCallback('Movie posted!');
