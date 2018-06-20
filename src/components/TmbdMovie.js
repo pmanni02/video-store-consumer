@@ -7,16 +7,35 @@ class TmbdMovie extends Component {
 
   onFormSubmit = (event) => {
     event.preventDefault();
+    const url = 'http://localhost:3000/movies/';
+
+    const title = encodeURIComponent(this.props.title);
+    axios.get(`${url}${title}`)
+      .then((response) => {
+        console.log(response.data);
+        this.props.statusCallback('This movie is already in the library');
+      })
+      .catch((error) => {
+        console.log(error.response.status);
+        if (error.response.status === 404){
+          this.addToLibrary();
+        }
+      });
+  }
+
+  addToLibrary = () => {
+    const url = 'http://localhost:3000/movies/';
     const movieObj = {
       title: this.props.title,
       release_date: this.props.releaseDate,
       overview: this.props.overview,
       image_url: this.props.poster,
-      external_id: this.props.id
+      external_id: this.props.id,
+      inventory: 5
     }
     console.log(movieObj);
 
-    axios.post('http://localhost:3000/movies/', movieObj)
+    axios.post(url , movieObj)
       .then((response) => {
         console.log(response);
         this.props.statusCallback('Movie posted!');
