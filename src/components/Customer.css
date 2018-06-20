@@ -8,3 +8,7 @@
 .customer img {
   padding-top: 2em;
 }
+
+.customer img:hover {
+  cursor: pointer;
+}

@@ -34,7 +34,7 @@ class TmbdMovie extends Component {
         <img
           src = {this.props.poster}
           alt='movie poster'/>
-        <input type = "submit" value = "Add Movie"/>
+        <button type = "submit">Add Movie</button>
       </form>
     );
   }

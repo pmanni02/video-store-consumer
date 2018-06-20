@@ -34,8 +34,6 @@ button {
   padding-bottom: 1em;
   margin-left: 1em;
   margin-right: 1em;
-
-  /* border-radius: 15em; */
 }
 
 button:hover {
@@ -46,11 +44,22 @@ button:hover {
 
 .Rent-form {
   margin: 2em;
+  padding: 1em;
+  border: dotted white 5px;
+  border-radius: 10px;
+  background-color: #FFD36D;
+}
+
+.Rent-form div {
+  padding-bottom: .5em;
 }
 
 .Rent-form div:last-of-type {
   padding-bottom: 1em;
+}
 
+.Rent-form button:hover {
+  background-color: #893B63;
 }
 
 /* * {

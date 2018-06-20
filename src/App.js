@@ -38,6 +38,14 @@ class App extends Component {
     })
   }
 
+  clearRentalForm = () => {
+    this.setState({
+      selectedMovie: '',
+      selectedCustomer: '',
+      customerId: '',
+    })
+  }
+
   addRental = () => {
     const movieTitle = this.state.selectedMovie;
     const customerId = this.state.customerId;
@@ -53,6 +61,7 @@ class App extends Component {
         status: 'Movie Rental Processed!'
       });
       this.setMessageStatus(this.state.status);
+      this.clearRentalForm()
     })
     .catch((error) => {
       this.setState({
@@ -124,15 +133,16 @@ class App extends Component {
             <button onClick={this.searchTmbd}>ADD TO LIBRARY</button>
           </div>
 
-          <div className="Rent-form">
-            <span className={this.state.rentalFields}>
+          <span className={this.state.rentalFields}>
+            <div className="Rent-form">
+
             <div>Chosen Movie: {this.state.selectedMovie}</div>
             <div>Chosen Customer: {this.state.selectedCustomer}</div>
             <button onClick={this.addRental}>Process Rental</button>
-            </span>
-          </div>
+            </div>
+          </span>
 
-          <section className="tiles">
+          <section>
             <div className={this.state.hiddenCustomers}>
               <CustomerList pickCustomerDetailCallback={this.pickCustomerDetail}/>
             </div>

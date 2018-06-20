@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../App.css';
+import './SearchTmbdForm.css';
 
 class SearchTmbdForm extends Component {
   constructor(){
@@ -34,13 +36,14 @@ class SearchTmbdForm extends Component {
       <form onSubmit = { this.onFormSubmit } >
         <div>
            <label
-             htmlFor = "text">Search:
+             htmlFor = "text"><strong>Search: </strong> 
            </label>
            <input name = "text" value = { this.state.search } type = "text"
              onChange = { this.onFieldChange }
            />
+           <button type = "submit">Search TMBD</button>
          </div>
-         <input type = "submit" value = "Search TMBD"/>
+
       </form>
     );
   }
