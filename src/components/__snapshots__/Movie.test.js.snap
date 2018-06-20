@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie snapshot 1`] = `
+<article
+  className="movie"
+>
+  <h3 />
+  <img
+    alt=""
+    onClick={[Function]}
+    src=""
+    title="Click to select"
+  />
+  <p />
+  <p />
+</article>
+`;

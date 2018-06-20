@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Board snapshot 1`] = `
+<Customer
+  address=""
+  city=""
+  customerCallback={[Function]}
+  id={0}
+  name=""
+  phone=""
+  postal_code=""
+  state=""
+>
+  <article
+    className="customer"
+  >
+    <img
+      alt="customer profile"
+      onClick={[Function]}
+      src="profile.jpg"
+    />
+    <h2 />
+    <p />
+    <p>
+      , 
+       
+    </p>
+    <p />
+  </article>
+</Customer>
+`;

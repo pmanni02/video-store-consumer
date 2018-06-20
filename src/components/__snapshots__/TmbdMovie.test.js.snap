@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TmbdMovie snapshot 1`] = `
+<form
+  className="tmbd-movie"
+  onSubmit={[Function]}
+>
+  <h2>
+     
+  </h2>
+  <p>
+    Release Date: 
+  </p>
+  <img
+    alt="movie poster"
+    src=""
+  />
+  <button
+    type="submit"
+  >
+    Add Movie
+  </button>
+</form>
+`;

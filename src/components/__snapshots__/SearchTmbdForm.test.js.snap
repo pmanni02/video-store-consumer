@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchTmbdForm snapshot 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div>
+    <label
+      htmlFor="text"
+    >
+      <strong>
+        Search: 
+      </strong>
+    </label>
+    <input
+      name="text"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <button
+      type="submit"
+    >
+      Search TMBD
+    </button>
+  </div>
+</form>
+`;

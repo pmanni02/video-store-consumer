@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomerList snapshot 1`] = `
+<CustomerList
+  pickCustomerDetailCallback={[Function]}
+>
+  <div
+    className="customer-list"
+  />
+</CustomerList>
+`;

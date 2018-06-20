@@ -19,14 +19,14 @@ class CustomerList extends Component {
     axios.get(query)
       .then((response) => {
         console.log(response);
-        this.setState({
-          customers: response.data
-        })
+          this.setState({
+            customers: response.data
+          });
       })
       .catch((error) => {
-        this.setState({
-          error: error.message
-        });
+          this.setState({
+            error: error.message
+          });
         if (error.message) {
           this.renderError();
           console.log(error.message);
