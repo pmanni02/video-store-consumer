@@ -4,9 +4,6 @@ import axios from 'axios';
 import './TmbdMovie.css'
 
 class TmbdMovie extends Component {
-  constructor(props){
-    super(props);
-  }
 
   onFormSubmit = (event) => {
     event.preventDefault();
@@ -25,7 +22,6 @@ class TmbdMovie extends Component {
         this.props.statusCallback('Movie posted!');
       })
       .catch((error) => {
-        // console.log(error.message);
         this.props.statusCallback(error.message);
       });
   }

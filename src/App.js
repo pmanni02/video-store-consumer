@@ -49,7 +49,6 @@ class App extends Component {
     axios.post(url)
     .then((response) => {
       console.log(response);
-      // this.rentalMovies();
       this.setState({
         status: 'Movie Rental Processed!'
       });
@@ -57,7 +56,6 @@ class App extends Component {
     })
     .catch((error) => {
       this.setState({
-        // message: error.message
         status: error.message
       });
       this.setMessageStatus(this.state.status);

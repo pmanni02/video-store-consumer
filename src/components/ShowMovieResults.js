@@ -4,17 +4,9 @@ import TmbdMovie from './TmbdMovie';
 import './ShowMovieResults.css'
 
 class ShowMovieResults extends Component {
-  constructor(props){
-    super(props);
-  }
-
   statusUpdate = (status) => {
     this.props.tmbdStatusCallback(status);
   }
-
-  // getImageUrl = () => {
-  //
-  // }
 
   renderMovies = () => {
     const movieList = this.props.movies.map((movie, index) => {
@@ -25,7 +17,6 @@ class ShowMovieResults extends Component {
           title = { movie.title }
           releaseDate = { movie.release_date }
           poster = { movie.image_url}
-          // poster = { this.getImageUrl(movie.image_url) }
           overview = { movie.overview }
           statusCallback = { this.statusUpdate }
         />
