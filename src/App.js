@@ -52,12 +52,14 @@ class App extends Component {
       this.setState({
         status: 'Movie Rental Processed!'
       });
+      this.setMessageStatus(this.state.status);
     })
     .catch((error) => {
       this.setState({
         // message: error.message
         status: error.message
       });
+      this.setMessageStatus(this.state.status);
     })
   }
 

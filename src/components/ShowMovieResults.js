@@ -12,9 +12,9 @@ class ShowMovieResults extends Component {
     this.props.tmbdStatusCallback(status);
   }
 
-  getImageUrl = () => {
-
-  }
+  // getImageUrl = () => {
+  //
+  // }
 
   renderMovies = () => {
     const movieList = this.props.movies.map((movie, index) => {
@@ -24,8 +24,8 @@ class ShowMovieResults extends Component {
           id = { movie.external_id }
           title = { movie.title }
           releaseDate = { movie.release_date }
-          // poster = { movie.image_url}
-          poster = { this.getImageUrl(movie.image_url) }
+          poster = { movie.image_url}
+          // poster = { this.getImageUrl(movie.image_url) }
           overview = { movie.overview }
           statusCallback = { this.statusUpdate }
         />
@@ -34,7 +34,6 @@ class ShowMovieResults extends Component {
 
     return movieList;
   }
-
 
   render(){
     return(
