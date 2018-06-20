@@ -1,17 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Movie from './Movie';
+import RentalList from './Movie';
 
-describe('Movie', () => {
+describe('RentalList', () => {
   test('snapshot', () => {
     const wrapper = shallow(
-      <Movie
-        id={0}
-        title=''
-        overview=''
-        release=''
-        image_url=''
-        movieCallback={()=>{}}
+      <RentalList
+        pickMovieDetailCallback={()=>{}}
       />
     );
     expect(wrapper).toMatchSnapshot();
