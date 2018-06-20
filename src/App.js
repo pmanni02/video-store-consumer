@@ -5,8 +5,8 @@ import CustomerList from './components/CustomerList';
 import './App.css';
 import Tmbd from './components/Tmbd.js'
 
-import {BrowserRouter as Router} from 'react-router-dom';
-import Route from 'react-router-dom/Route';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+// import Route from 'react-router-dom/Route';
 
 class App extends Component {
   constructor() {
@@ -15,10 +15,6 @@ class App extends Component {
       selectedMovie: '',
       selectedCustomer: '',
       customerId: '',
-      hiddenMovies: 'hide',
-      hiddenCustomers: 'hide',
-      searchForm: 'hide',
-      rentalFields: 'hide',
       status: ''
     };
   }
@@ -71,33 +67,6 @@ class App extends Component {
     })
   }
 
-  rentalMovies = () => {
-    this.setState({
-      hiddenMovies: 'show',
-      hiddenCustomers: 'hide',
-      searchForm: 'hide',
-      rentalFields: 'show'
-    });
-  }
-
-  rentalCustomer = () => {
-    this.setState({
-      hiddenMovies: 'hide',
-      hiddenCustomers: 'show',
-      searchForm: 'hide',
-      rentalFields: 'show'
-    });
-  }
-
-  searchTmbd = () => {
-    this.setState({
-      hiddenMovies: 'hide',
-      hiddenCustomers: 'hide',
-      searchForm: 'show',
-      rentalFields: 'hide'
-    })
-  }
-
   statusMessage = () => {
     if (this.state.status !== ''){
       return <p>{this.state.status}</p>
@@ -122,38 +91,39 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
-            <h1 className="App-title">Ada Movies</h1>
+            <h1 className="App-title"><Link to="/">Ada Movies</Link></h1>
           </header>
 
           {this.statusMessage()}
 
           <div className="navigation">
-            <button onClick={this.rentalMovies}>MOVIES</button>
-            <button onClick={this.rentalCustomer}>CUSTOMERS</button>
-            <button onClick={this.searchTmbd}>ADD TO LIBRARY</button>
+            <button><Link to="/movies">MOVIES</Link></button>
+            <button onClick={this.rentalCustomer}><Link to="/customers">CUSTOMERS</Link></button>
+            <button onClick={this.searchTmbd}><Link to="/search">ADD TO LIBRARY</Link></button>
           </div>
 
           <span className={this.state.rentalFields}>
             <div className="Rent-form">
-
-            <div>Chosen Movie: {this.state.selectedMovie}</div>
-            <div>Chosen Customer: {this.state.selectedCustomer}</div>
-            <button onClick={this.addRental}>Process Rental</button>
+            <section className="chosen">
+              <div><strong>Chosen Movie: </strong> {this.state.selectedMovie}</div>
+              <div><strong>Chosen Customer: </strong> {this.state.selectedCustomer}</div>
+            </section>
+            <section><button onClick={this.addRental}>Process Rental</button></section>
             </div>
           </span>
 
           <section>
-            <div className={this.state.hiddenCustomers}>
-              <CustomerList pickCustomerDetailCallback={this.pickCustomerDetail}/>
+            <div className={this.rentalMovies}>
+              <Route path="/movies" render={(props) => <RentalList {...props}  pickMovieDetailCallback={this.pickMovieDetail}/>} />
             </div>
-            <div className={this.state.hiddenMovies}>
-              <RentalList pickMovieDetailCallback={this.pickMovieDetail}/>
+            <div className={this.rentalCustomers}>
+              <Route path="/customers" render={(props) => <CustomerList {...props}  pickCustomerDetailCallback={this.pickCustomerDetail}/>} />
             </div>
           </section>
-          <div className={this.state.searchForm}>
-            <Tmbd
-              statusCallback = { this.setMessageStatus }
-            />
+
+          <div className={this.searchTmbd}>
+            <Route path="/search" render={(props) => <Tmbd {...props}
+              statusCallback = { this.setMessageStatus }/>} />
           </div>
         </div>
       </Router>

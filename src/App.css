@@ -39,8 +39,8 @@ button {
 button:hover {
   background-color: #5F4B66;
   color: white;
-  cursor: pointer;
 }
+
 
 .Rent-form {
   margin: 2em;
@@ -48,6 +48,8 @@ button:hover {
   border: dotted white 5px;
   border-radius: 10px;
   background-color: #FFD36D;
+  display: flex;
+  justify-content: space-around;
 }
 
 .Rent-form div {
@@ -60,6 +62,10 @@ button:hover {
 
 .Rent-form button:hover {
   background-color: #893B63;
+}
+
+.chosen {
+  text-align: left;
 }
 
 /* * {
