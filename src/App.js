@@ -36,6 +36,14 @@ class App extends Component {
     })
   }
 
+  clearRentalForm = () => {
+    this.setState({
+      selectedMovie: '',
+      selectedCustomer: '',
+      customerId: '',
+    })
+  }
+
   addRental = () => {
     const movieTitle = this.state.selectedMovie;
     const customerId = this.state.customerId;
@@ -50,10 +58,10 @@ class App extends Component {
       this.setState({
         status: 'Movie Rental Processed!'
       });
+      this.clearRentalForm()
     })
     .catch((error) => {
       this.setState({
-        // message: error.message
         status: error.message
       });
     })
@@ -120,13 +128,13 @@ class App extends Component {
           <button onClick={this.searchTmbd}>ADD TO LIBRARY</button>
         </div>
 
-        <div className="Rent-form">
           <span className={this.state.rentalFields}>
-          <div>Chosen Movie: {this.state.selectedMovie}</div>
-          <div>Chosen Customer: {this.state.selectedCustomer}</div>
-          <button onClick={this.addRental}>Process Rental</button>
+            <div className="Rent-form">
+            <div><strong>Chosen Movie:</strong> {this.state.selectedMovie}</div>
+            <div><strong>Chosen Customer:</strong> {this.state.selectedCustomer}</div>
+            <button onClick={this.addRental}>Process Rental</button>
+            </div>
           </span>
-        </div>
 
           <div className={this.state.hiddenCustomers}>
             <CustomerList pickCustomerDetailCallback={this.pickCustomerDetail}/>

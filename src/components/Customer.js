@@ -12,7 +12,7 @@ class Customer extends Component {
   render() {
     return (
       <article className="customer">
-        <img src={profile} onClick={this.rentalDetail}/>
+        <img src={profile} onClick={this.rentalDetail} title="Click to select"/>
         <h2>{this.props.name}</h2>
         <p>{this.props.address}</p>
         <p>{this.props.city}, {this.props.state} {this.props.postal_code}</p>

@@ -12,7 +12,7 @@ class Movie extends Component {
     return (
       <article className="movie">
         <h3>{this.props.title}</h3>
-        <img src={this.props.image_url} alt={this.props.title}  onClick={this.rentalDetail}/>
+        <img src={this.props.image_url} alt={this.props.title}  onClick={this.rentalDetail} title="Click to select"/>
         <p>{this.props.overview}</p>
         <p>{this.props.release}</p>
       </article>
