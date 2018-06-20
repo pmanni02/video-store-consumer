@@ -23,7 +23,8 @@ class Tmbd extends Component {
         this.setState({
           moviesAreHidden: false,
           movies: response.data
-        })
+        });
+        console.log(this.state.movies);
       })
       .catch((error) => {
         console.log(error);

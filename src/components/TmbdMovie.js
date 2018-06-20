@@ -17,6 +17,7 @@ class TmbdMovie extends Component {
       image_url: this.props.poster,
       external_id: this.props.id
     }
+    console.log(movieObj);
 
     axios.post('http://localhost:3000/movies/', movieObj)
       .then((response) => {
