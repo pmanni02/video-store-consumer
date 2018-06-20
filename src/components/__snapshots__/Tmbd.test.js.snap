@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tmbd snapshot 1`] = `
+<div>
+  <div
+    className="show"
+  >
+    <SearchTmbdForm
+      searchCallback={[Function]}
+    />
+  </div>
+  <div
+    className="hide"
+  >
+    <ShowMovieResults
+      movies={Array []}
+      tmbdStatusCallback={[Function]}
+    />
+  </div>
+</div>
+`;
