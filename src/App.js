@@ -127,9 +127,9 @@ class App extends Component {
                 statusCallback = { this.setMessageStatus }/>} />
             </div>
           </section>
-          
+
           <footer>
-            <img src={logo}/>
+            <img src={logo} alt='The Movie Database logo'/>
             <p>☞ Phoebe & Lily </p>
           </footer>
         </div>
