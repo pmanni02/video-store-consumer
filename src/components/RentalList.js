@@ -14,6 +14,7 @@ class RentalList extends Component {
 
   componentDidMount = () => {
     let query =  'http://localhost:3000/movies'
+    // let query = 'http://video-store-env.2u3bfdmdgx.us-west-2.elasticbeanstalk.com/movies'
 
     axios.get(query)
       .then((response) => {
