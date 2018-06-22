@@ -8,7 +8,7 @@ class TmbdMovie extends Component {
   onFormSubmit = (event) => {
     event.preventDefault();
     const url = 'http://localhost:3000/movies/';
-    // const url = 'http://video-store-env.2u3bfdmdgx.us-west-2.elasticbeanstalk.com/movies/'
+
     const title = encodeURIComponent(this.props.title);
 
     if (window.confirm('Are you sure you wish to add this movie?')) {
@@ -29,7 +29,6 @@ class TmbdMovie extends Component {
 
   addToLibrary = () => {
     const url = 'http://localhost:3000/movies/';
-    // const url = 'http://video-store-env.2u3bfdmdgx.us-west-2.elasticbeanstalk.com/movies/';
     const movieObj = {
       title: this.props.title,
       release_date: this.props.releaseDate,
