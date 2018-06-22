@@ -2,16 +2,12 @@
 
 exports[`Tmbd snapshot 1`] = `
 <div>
-  <div
-    className="show"
-  >
+  <div>
     <SearchTmbdForm
       searchCallback={[Function]}
     />
   </div>
-  <div
-    className="hide"
-  >
+  <div>
     <ShowMovieResults
       movies={Array []}
       tmbdStatusCallback={[Function]}

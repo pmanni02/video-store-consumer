@@ -9,19 +9,15 @@ class Tmbd extends Component {
   constructor(){
     super();
     this.state = {
-      moviesAreHidden: true,
-      movieHidden: true,
       movies: []
     }
   }
 
   getMovies = (search) => {
     const url = 'http://localhost:3000//movies?query=';
-    // const url='http://video-store-env.2u3bfdmdgx.us-west-2.elasticbeanstalk.com/movies?query='
     axios.get(`${url}${search}`)
       .then((response) => {
         this.setState({
-          moviesAreHidden: false,
           movies: response.data
         });
         console.log(this.state.movies);
@@ -31,11 +27,6 @@ class Tmbd extends Component {
       })
   }
 
-  displayComp = (stateVar) => {
-    if (stateVar) { return 'hide' }
-    return 'show';
-  }
-
   statusUpdate = (status) => {
     this.props.statusCallback(status);
   }
@@ -43,16 +34,16 @@ class Tmbd extends Component {
   render(){
     return(
       <div>
-        <div className = 'show'>
+        <div>
           <SearchTmbdForm
             searchCallback = { this.getMovies }
           />
         </div>
 
-        <div className = { this.displayComp(this.state.moviesAreHidden) }>
+        <div >
           <ShowMovieResults
             movies = { this.state.movies }
-            tmbdStatusCallback = {this.statusUpdate}
+            tmbdStatusCallback = { this.statusUpdate }
           />
         </div>
       </div>

@@ -98,7 +98,7 @@ class App extends Component {
             <Link to="/"><h1 className="App-title">Ada Movies</h1></Link>
           </header>
 
-          {this.statusMessage()}
+
 
           <div className="navigation">
             <Link to="/movies" ><button>MOVIES</button></Link>
@@ -113,6 +113,10 @@ class App extends Component {
             </section>
             <section><button onClick={this.addRental}>Process Rental</button>
             </section>
+          </div>
+
+          <div>
+            {this.statusMessage()}
           </div>
 
           <section>
