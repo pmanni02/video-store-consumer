@@ -6,10 +6,7 @@ import Tmbd from './components/Tmbd.js'
 import './App.css';
 import logo from './tmdb.png';
 
-
-
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-// import Route from 'react-router-dom/Route';
 
 class App extends Component {
   constructor() {
@@ -93,12 +90,9 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-
           <header className="App-header">
             <Link to="/"><h1 className="App-title">Ada Movies</h1></Link>
           </header>
-
-
 
           <div className="navigation">
             <Link to="/movies" ><button>MOVIES</button></Link>
