@@ -8,7 +8,6 @@ class TmbdMovie extends Component {
   onFormSubmit = (event) => {
     event.preventDefault();
     const url = 'http://localhost:3000/movies/';
-
     const title = encodeURIComponent(this.props.title);
 
     if (window.confirm('Are you sure you wish to add this movie?')) {
@@ -25,7 +24,6 @@ class TmbdMovie extends Component {
       });
     }
   }
-
 
   addToLibrary = () => {
     const url = 'http://localhost:3000/movies/';

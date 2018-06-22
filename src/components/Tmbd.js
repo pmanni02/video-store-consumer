@@ -40,7 +40,7 @@ class Tmbd extends Component {
           />
         </div>
 
-        <div >
+        <div>
           <ShowMovieResults
             movies = { this.state.movies }
             tmbdStatusCallback = { this.statusUpdate }
