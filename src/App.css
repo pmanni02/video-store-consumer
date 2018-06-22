@@ -58,6 +58,7 @@ button:hover {
 /* Rental Form */
 .Rent-form {
   margin: 2em;
+  margin-top: .5em;
   padding: 1em;
   border: dotted white 5px;
   border-radius: 10px;
